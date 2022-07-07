@@ -1,15 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage{"verify tooling"} {
+        stage{"test"} {
             steps {
-                sh '''
-                    docker version
-                    docker info
-                    docker compose version
-                    curl --version
-                    jq --version
-                '''
+                sh "python3 -m pytest app-test.py"
             }
         }
     }
