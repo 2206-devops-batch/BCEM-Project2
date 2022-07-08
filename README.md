@@ -8,5 +8,3 @@ python web app built on flask using html script.
 Hosted on get hub repository where commits are sent to jenkins.
  and forwarded to a docker image.
  docker build -t monikait-project1 .
-
-<br> Testing pipeline docker push | getting pwd
