@@ -13,6 +13,7 @@ pipeline {
                 sh 'python3 -m pytest app-test.py'
                 // sh 'sudo docker login -u ${DOCK_USER} --password-stdin ${DOCK_PASSWORD}'
                 // sh 'sudo docker build /home/ec2-user/workspace/Monikai -t chamoo334/p2'
+                sh 'sudo docker stop p2_app'
                 sh 'sudo docker build /home/ubuntu/workspace/demo-cicd -t chamoo334/p2'
                 sh 'sudo docker push chamoo334/p2'
             }
