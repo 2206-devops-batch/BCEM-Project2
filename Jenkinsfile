@@ -11,7 +11,7 @@ pipeline {
                 sh 'sudo apt install python3-pip -y'
                 sh 'pip3 install -r requirements.txt'
                 sh 'python3 -m pytest app-test.py'
-                sh 'sudo docker login -u $DOCKER_USER -p $DOCKER_PASSWORD'
+                sh 'sudo docker login -u ${DOCK_USER} -p ${DOCK_PASSWORD}'
                 sh 'sudo docker build /home/ec2-user/workspace/Monikai -t chamoo334/p2'
                 sh 'sudo docker push chamoo334/p2'
             }
