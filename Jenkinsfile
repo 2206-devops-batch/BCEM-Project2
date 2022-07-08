@@ -1,7 +1,7 @@
 pipeline {
     agent {label "linuxdemo"}
     stages {
-        stage{"test"} {
+        stage('Test') {
             agent { label 'linuxdemo' }
             steps {
                 sh 'pwd'
@@ -16,11 +16,9 @@ pipeline {
                 sh 'sudo docker push chamoo334/p2'
             }
         }
-        stage("build and run") {
+        stage('Build and run') {
             agent { label 'linuxdemo' }
             steps {
-
-                    sh 'sudo docker login -u ${env.DOCK_USER} -p ${env.DOCK_PASS}'
                     sh 'sudo docker pull chamoo334/p2:latest'
                     sh 'sudo docker run chamoo334/p2 --name p2_app'
             }
