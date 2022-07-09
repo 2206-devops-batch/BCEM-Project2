@@ -1,1 +1,1 @@
-echo "this is my first run!"
+echo "temp.sh just ran!"

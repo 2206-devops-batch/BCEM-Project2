@@ -1,3 +1,3 @@
 git add .
-git commit -m "${@:-'small change'}"
+git commit -m "${@:-'minor change'}"
 git push
