@@ -1,12 +1,22 @@
 pipeline {
     agent any
+
     stages {
-        stage("verify tooling") {
+        stage('Build') {
             steps {
-                sh '''
-                    echo "****************************************************************88"
-                '''
+                // Get some code from a GitHub repository
+                checkout([$class: 'GitSCM', branches: [[name: '*/bryon']],
+    userRemoteConfigs: [[url: 'https://github.com/2206-devops-batch/BCEM-Project2.git']]])
+
+                // Run Maven on a Unix agent.
+                // sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                sh '. $WORKSPACE/temp.sh'
+
+                // To run Maven on a Windows agent, use
+                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
+
+            
         }
     }
 }
