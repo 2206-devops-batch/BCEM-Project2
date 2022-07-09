@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    enviroment {
+    environment {
         CREDS = credentials('bryon_user_password')
     }
     stages {
