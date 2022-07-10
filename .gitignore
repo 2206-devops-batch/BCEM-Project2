@@ -128,3 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 forms.py
+
+# venv
+proj2/
+.venv/

@@ -1,7 +1,6 @@
-#!/usr/bin/env python3
 from flask import Flask, render_template, request
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='./Templates')
 
 @app.route('/',methods = ['POST','GET'])
 def calculate():
@@ -24,6 +23,6 @@ def about():
     return '<h3>This is a Flask web application intended to work cohesively with a CI/CD pipeline.</h3>'
 
 
-if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port='5000')
-
+# flask run --host=0.0.0.0
+# if __name__ == '__main__':
+#     app.run(debug=False, host='0.0.0.0', port='5000')
