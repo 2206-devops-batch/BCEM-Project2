@@ -1,5 +1,5 @@
 # MonikaiT-project1
-CI Pipeline for web app
+CI Pipeline for web app.
 export FLASK_APP=app.py
 export FLASK_ENV=development
 flask run
