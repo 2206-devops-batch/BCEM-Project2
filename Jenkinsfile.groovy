@@ -18,7 +18,7 @@ pipeline {
                 sh 'printenv'
                 
                 sh 'python3 -m venv .venv'
-                sh 'ls -al'
+                sh 'ls -al .venv/bin'
                 sh '. .venv/bin/activate'
                 sh "$path && echo 'hello world!'"
                 sh 'pip3 install -r ./requirements.txt'
