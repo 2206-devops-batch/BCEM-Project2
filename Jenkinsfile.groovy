@@ -21,7 +21,6 @@ pipeline {
                 // sh 'ls -al .venv/bin'
                 // sh '. .venv/bin/activate'
                 sh 'pip3 install -r ./requirements.txt'
-
                 sh 'python3 -m pytest'
 
             }
