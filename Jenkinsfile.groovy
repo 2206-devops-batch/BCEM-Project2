@@ -16,6 +16,7 @@ pipeline {
                 sh '. ./temp.sh'
                 sh "pwd"
                 sh 'pip3 install -r ./requirements.txt'
+                sh 'pytest ./test_pytest.py'
 
             }
 
