@@ -10,6 +10,9 @@ pipeline {
             }
             steps {
                 // Get some code from a GitHub repository
+                sh 'whoami'
+                sh 'apt update && apt install git'
+                sh 'git version'
                 checkout([$class: 'GitSCM', branches: [[name: '*/bryon']],
     userRemoteConfigs: [[url: 'https://github.com/2206-devops-batch/BCEM-Project2.git']]])
 
