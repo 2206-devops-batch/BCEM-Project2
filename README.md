@@ -1,5 +1,5 @@
 # MonikaiT-project1<br>
-CI Pipeline for web app.<br>
+CICD Pipeline for web app.<br>
 
 ![CICD Pipeline](https://github.com/2206-devops-batch/BCEM-Project2/blob/master/proj2-cicd.png)
 
@@ -19,5 +19,5 @@ flask run<br>
 http://127.0.0.1:5000<br>
 python web app built on flask using html script<br>
 Hosted on get hub repository where commits are sent to jenkins.
- and forwarded to a docker image.
+ and forwarded to a docker image.<br>
  docker build -t monikait-project1
