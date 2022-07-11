@@ -20,10 +20,11 @@ pipeline {
                 // sh 'python3 -m venv .venv'
                 // sh 'ls -al .venv/bin'
                 // sh '. .venv/bin/activate'
+                sh 'pip3 list'
                 sh 'pip3 install -r ./requirements.txt'
                 sh 'pip3 list'
 
-                sh 'pytest'
+                // sh 'pytest'
 
             }
 
