@@ -132,3 +132,5 @@ forms.py
 jenkins*
 .venv
 .ssh/
+agent*
+!agents

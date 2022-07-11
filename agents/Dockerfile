@@ -31,7 +31,7 @@ RUN jlink \
          --compress=2 \
          --output /javaruntime
 
-FROM debian:bullseye-20220622
+FROM debian:bookworm-backports
 
 ARG user=jenkins
 ARG group=jenkins
@@ -45,13 +45,14 @@ RUN groupadd -g ${gid} ${group} \
     && useradd -d "${JENKINS_AGENT_HOME}" -u "${uid}" -g "${gid}" -m -s /bin/bash "${user}"
 
 RUN apt-get update \
-    && apt-get install --no-install-recommends -y openssh-server git-lfs netcat-traditional \
+    && apt-get install --no-install-recommends -y openssh-server git-lfs git netcat-traditional \
     && rm -rf /var/lib/apt/lists/*
 
 # setup SSH server
 RUN sed -i /etc/ssh/sshd_config \
-        -e 's/#PermitRootLogin.*/PermitRootLogin no/' \
-        -e 's/#RSAAuthentication.*/RSAAuthentication yes/'  \
+        -e 's/#PermitRootLogin.*/PermitRootLogin yes/' \
+        -e 's/#RSAAuthentication.*/RSAAuthentication yes/' \
+        -e 's/#PubkeyAuthentication.*/PubkeyAuthentication yes/' \
         -e 's/#PasswordAuthentication.*/PasswordAuthentication no/' \
         -e 's/#SyslogFacility.*/SyslogFacility AUTH/' \
         -e 's/#LogLevel.*/LogLevel INFO/' && \
@@ -69,10 +70,5 @@ COPY --from=jre-build /javaruntime $JAVA_HOME
 RUN echo "PATH=${PATH}" >> /etc/environment
 # COPY ./setup-sshd /usr/local/bin/setup-sshd
 
-USER root
-RUN echo "service ssh start" >> /etc/rc.local
-
-EXPOSE 22
-
-ENTRYPOINT ["bash"]
+CMD service ssh restart && bash
 
