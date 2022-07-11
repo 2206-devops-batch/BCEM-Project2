@@ -17,9 +17,9 @@ pipeline {
                 sh "pwd"
                 sh 'printenv'
                 
-                sh 'python3 -m venv .venv'
-                sh 'ls -al .venv/bin'
-                sh '. .venv/bin/activate'
+                // sh 'python3 -m venv .venv'
+                // sh 'ls -al .venv/bin'
+                // sh '. .venv/bin/activate'
                 sh "$path && echo 'hello world!'"
                 sh 'pip3 install -r ./requirements.txt'
                 sh 'pip3 list'
