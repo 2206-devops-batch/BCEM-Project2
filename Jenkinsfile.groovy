@@ -15,6 +15,7 @@ pipeline {
     userRemoteConfigs: [[url: 'https://github.com/2206-devops-batch/BCEM-Project2.git']]])
                 sh '. ./temp.sh'
                 sh "pwd"
+                sh 'pip3 install -r ./requirements.txt'
 
             }
 
