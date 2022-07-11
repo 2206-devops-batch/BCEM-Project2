@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Get Git') {
             agent {
-                label 'agent2_node'
+                label 'agent1'
             }
             steps {
                 // Get some code from a GitHub repository
@@ -25,7 +25,7 @@ pipeline {
         }
         stage('run shell') {
             agent {
-                label 'agent2_node'
+                label 'agent2'
             }
             steps {
     //             // Get some code from a GitHub repository
