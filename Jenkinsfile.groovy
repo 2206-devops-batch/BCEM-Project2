@@ -19,7 +19,7 @@ pipeline {
                 sh 'python3 -m venv .venv'
                 sh '. .venv/bin/activate'
                 sh 'pip3 install -r ./requirements.txt'
-                sh 'pytest ./test_pytest.py'
+                sh 'pytest'
 
             }
 
