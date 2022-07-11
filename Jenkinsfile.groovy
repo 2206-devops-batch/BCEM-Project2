@@ -16,7 +16,6 @@ pipeline {
                 sh '. ./temp.sh'
                 sh "pwd"
                 
-                sh 'apt install python3.10-venv'
                 sh 'python3 -m venv .venv'
                 sh '. .venv/bin/activate'
                 sh 'pip3 install -r ./requirements.txt'
