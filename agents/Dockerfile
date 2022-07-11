@@ -46,7 +46,8 @@ RUN groupadd -g ${gid} ${group} \
 
 RUN apt-get update \
     && apt-get install --no-install-recommends -y openssh-server git-lfs git netcat-traditional \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get update && apt-get install -y ca-certificates && update-ca-certificates
 
 # setup SSH server
 RUN sed -i /etc/ssh/sshd_config \
@@ -69,6 +70,9 @@ COPY --from=jre-build /javaruntime $JAVA_HOME
 
 RUN echo "PATH=${PATH}" >> /etc/environment
 # COPY ./setup-sshd /usr/local/bin/setup-sshd
+
+# # git complains about CA missmatch
+# RUN git config --global http.sslverify false
 
 CMD service ssh restart && bash
 

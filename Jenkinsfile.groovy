@@ -1,8 +1,8 @@
 pipeline {
     agent none
-    environment {
-        CREDS = credentials('bryon_user_password')
-    }
+    // environment {
+    //     CREDS = credentials('bryon_user_password')
+    // }
     stages {
         stage('Get Git') {
             agent {
