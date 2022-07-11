@@ -10,10 +10,10 @@ pipeline {
             }
             steps {
                 // Get some code from a GitHub repository
-                sh 'whoami'
-                sh 'git version'
-    //             checkout([$class: 'GitSCM', branches: [[name: '*/bryon']],
-    // userRemoteConfigs: [[url: 'https://github.com/2206-devops-batch/BCEM-Project2.git']]])
+                sh 'echo "agent1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"'
+                checkout([$class: 'GitSCM', branches: [[name: '*/bryon']],
+    userRemoteConfigs: [[url: 'https://github.com/2206-devops-batch/BCEM-Project2.git']]])
+                sh '. ./temp.sh'
 
             }
 

@@ -6,7 +6,7 @@ services:
     privileged: true
     user: root
     ports:
-     - 2021:22
+     - "2021:22"
     container_name: agent1
     tty: true
     volumes:
@@ -18,7 +18,7 @@ services:
     privileged: true
     user: root
     ports:
-     - 2022:22
+     - "2022:22"
     container_name: agent2
     tty: true
     volumes:
