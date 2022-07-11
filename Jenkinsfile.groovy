@@ -15,10 +15,12 @@ pipeline {
     userRemoteConfigs: [[url: 'https://github.com/2206-devops-batch/BCEM-Project2.git']]])
                 sh '. ./temp.sh'
                 sh "pwd"
+                sh 'printenv'
                 
                 sh 'python3 -m venv .venv'
+                sh 'ls -al'
                 sh '. .venv/bin/activate'
-                sh "$path"
+                sh "$path && echo 'hello world!'"
                 sh 'pip3 install -r ./requirements.txt'
                 sh 'pytest'
 
