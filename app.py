@@ -7,13 +7,13 @@ def calculate():
 	budget = ''
 	income = ''
 	if request.method=='POST' and 'checking' in request.form and 'housing' in request.form and 'savings' in request.form and 'transportation' in request.form and 'bills' in request.form and 'food' in request.form and 'misc' in request.form:
-		c = float(request.form.get('checking'))
-		h = float(request.form.get('housing'))
-		s = float(request.form.get('savings'))
-		t = float(request.form.get('transportation'))
-		b = float(request.form.get('bills'))
-		f = float(request.form.get('food'))
-		m = float(request.form.get('misc'))
+		c = 0 if len(request.form.get('checking')) == 0 else float(request.form.get('checking'))
+		h = 0 if len(request.form.get('housing')) == 0 else float(request.form.get('housing'))
+		s = 0 if len(request.form.get('savings')) == 0 else float(request.form.get('savings'))
+		t = 0 if len(request.form.get('transportation')) == 0 else float(request.form.get('transportation'))
+		b = 0 if len(request.form.get('bills')) == 0 else float(request.form.get('bills'))
+		f = 0 if len(request.form.get('food')) == 0 else float(request.form.get('food'))
+		m = 0 if len(request.form.get('misc')) == 0 else float(request.form.get('misc'))
 		budget = c-(h+s+t+b+f+m)
 		income = c
 	return render_template('index.html', budget=budget, income=income)
