@@ -13,13 +13,12 @@ pipeline {
                 sh 'whoami'
                 sh 'apt update && apt install git'
                 sh 'git version'
-                checkout([$class: 'GitSCM', branches: [[name: '*/bryon']],
-    userRemoteConfigs: [[url: 'https://github.com/2206-devops-batch/BCEM-Project2.git']]])
+    //             checkout([$class: 'GitSCM', branches: [[name: '*/bryon']],
+    // userRemoteConfigs: [[url: 'https://github.com/2206-devops-batch/BCEM-Project2.git']]])
 
                 // Run Maven on a Unix agent.
                 // sh "mvn -Dmaven.test.failure.ignore=true clean package"
-                sh '. whoami'
-                sh '. $WORKSPACE/temp.sh'
+                // sh '. $WORKSPACE/temp.sh'
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
