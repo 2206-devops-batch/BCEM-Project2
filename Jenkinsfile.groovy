@@ -14,6 +14,7 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/bryon']],
     userRemoteConfigs: [[url: 'https://github.com/2206-devops-batch/BCEM-Project2.git']]])
                 sh '. ./temp.sh'
+                sh '$pwd'
 
             }
 
