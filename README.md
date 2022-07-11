@@ -1,7 +1,7 @@
 # MonikaiT-project1<br>
 CICD Pipeline for web app.<br>
 
-![CICD Pipeline](https://github.com/2206-devops-batch/BCEM-Project2/blob/master/proj2-cicd.png)
+![CICD Pipeline](https://github.com/2206-devops-batch/BCEM-Project2/blob/master/proj2-initial-cicd.png)
 
 # Continuous Integration
 GitHub webhook notifies Jenkins of a push to master.<br>
